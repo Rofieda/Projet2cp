@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Chercheur Form</title>
+</head>
+<body>
+    <h1>Add Chercheur</h1>
+    <form action="{% url 'create_chercheur' %}" method="post" enctype="multipart/form-data">
+        <!-- CSRF token to prevent Cross-Site Request Forgery (CSRF) attacks -->
+        {% csrf_token %}
+        <label for="nom">NOM</label>
+        <input type="text" id="prenom" name="nom">  <br>
+
+        <label for="prenom">prenom</label>
+        <input type="text" id="prenom" name="prenom"><br>
+
+        <label for="genre">genre</label>
+        <input type="text" id="genre" name="genre"><br>
+
+        <label for="date_naiss">date_naiss</label>
+        <input type="text" id="date_naiss" name="date_naiss"><br>
+
+        <label for="etablissement">etablissement</label>
+        <input type="text" id="etablissement" name="etablissement"><br>
+
+        <label for="diplome">diplome</label>
+        <input type="text" id="diplome" name="diplome"><br>
+
+        
+
+        <label for="email">email</label>
+        <input type="text" id="email" name="mail"><br>
+
+        <label for="tel">tel</label>
+        <input type="text" id="tel" name="tel"><br>
+
+        <label for="dblp_lien">dblp_lien</label>
+        <input type="text" id="dblp_lien" name="dblp_lien"><br>
+
+        <label for="bureau">bureau</label>
+        <input type="text" id="bureau" name="bureau"><br>
+
+
+        <label for="role_eq">role_eq</label>
+        <input type="text" id="role_eq" name="role_eq"><br>
+
+
+        <label for="fonction_etbl">fonction_etbl</label>
+        <input type="text" id="fonction_etbl" name="fonction_etbl"><br>
+
+        <label for="grade_recherche">grade_recherche</label>
+        <input type="text" id="grade_recherche" name="grade_recherche"><br>
+
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
