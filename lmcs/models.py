@@ -15,7 +15,7 @@ class Chercheur(models.Model):
     date_naiss=models.CharField(max_length=50)
     etablissement=models.CharField(max_length=50)
     diplome=models.CharField(max_length=100)
-    grade_recherche=models.CharField(max_length=100)
+    grade_recherche=models.CharField(max_length=50 , null=True)
     mail=models.EmailField(unique=True)
     tel=models.CharField(max_length=50)
     dblp_lien=models.CharField(max_length=50)
@@ -58,8 +58,8 @@ class Etudiants(models.Model) :
 class Encadrement (models.Model) : 
      # Define the foreign keys relationship with chercheur and etudiant table 
 
-    id_chercheur = models.ForeignKey(Chercheur, on_delete=models.CASCADE, null=True)
-    id_etudiant = models.ForeignKey(Etudiants, on_delete=models.CASCADE, null=True)
+    id_chercheur = models.ForeignKey(Chercheur, on_delete=models.CASCADE, null=True,db_column='id_chercheur')
+    id_etudiant = models.ForeignKey(Etudiants, on_delete=models.CASCADE, null=True , db_column='id_etudiant')
     type_choices = [
         ('PFE','PFE'),
         ('Master','Master'),

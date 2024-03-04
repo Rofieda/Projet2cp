@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Chercheur</title>
+</head>
+<body>
+    <h1>Search Chercheur</h1>
+    <form action="{% url 'search_chercheur' %}" method="get">
+        <label for="nom">Enter Chercheur Name:</label>
+        <input type="text" id="nom" name="nom">
+        <label for="prenom">Enter Chercheur Prenom:</label>
+        <input type="text" id="prenom" name="prenom">
+
+        <button type="submit">Search</button>
+    </form>
+
+    {% if key %}
+    <h2>Chercheur Information</h2>
+    <p>Nom: {{ key.nom_chercheur }}</p>
+    <p>Prenom: {{ key.prenom_chercheur }}</p>
+    <p>Date de naissance: {{key.date_naiss}}</p>
+    <p>etablissement: {{key.etablissement}}</p>
+    <p>diplome: {{key.diplome}}</p>
+    <p>mail: {{key.mail}}</p>
+    <p>lien DBLP: {{key.dblp_lien}}</p>
+    <p>Bureau: {{key.bureau}}</p>
+    <p>role_eq: {{key.role_eq}}</p>
+    <p>fonction_etbl: {{key.fonction_etbl}}</p>
+    <p>grade recherche: {{key.grade_recherche}}</p>
+    
+    {% endif %}
+</body>
+</html>

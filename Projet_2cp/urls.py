@@ -17,9 +17,13 @@ Including another URLconf
 #from django.contrib import admin
 from django.urls import path
 from lmcs.views import create_chercheur 
+from lmcs.views import create_etudiant
 from lmcs.views import home_page
+from lmcs.views import search_chercheur
 
 urlpatterns = [
     path('create_chercheur/', create_chercheur, name='create_chercheur'),
     path('', home_page, name='home'),
+    path('Add_etudiant/', create_etudiant, name='create_etudiant'),
+    path('Affich_chercheur/', search_chercheur, name='search_chercheur'),
 ]

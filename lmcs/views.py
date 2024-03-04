@@ -1,5 +1,5 @@
 from django.shortcuts import render ,redirect
-from .models import Chercheur 
+from .models import Chercheur ,Etudiants
 from django.db import IntegrityError
 def create_chercheur(request) : 
     if request.method == 'POST':
@@ -58,6 +58,40 @@ def home_page(request):
 
 
 
+def create_etudiant(request) :
+    if request.method == 'POST':
+        nom_etd=request.POST.get('nom_etd') 
+        prenom_etd=request.POST.get('prenom_etd')
+        etablissement_etd=request.POST.get('etablissement_etd')
+       
+        etud=Etudiants(
+            nom_etd=nom_etd,
+            prenom_etd=prenom_etd,
+            etablissement_etd=etablissement_etd,
+        )
+        etud.save()
+        return redirect('the etudiant added succecfuly')
+    else : 
+        return render(request , 'Add_etudiant.html')
+    
+# def create_etudiant(request):
+  #   if request.method == 'POST':
+   #     type_encadr=request.post.get('type_encadr')
+    #    return redirect('the encadrement added succecfuly')
+    #else: 
+     #   return render(request , 'Add_etudiant.html') 
+    
+    
+
+def search_chercheur(request):
+    if request.method == 'GET':
+        nom = request.GET.get('nom')
+        prenom = request.GET.get('prenom')
+        chercheur = Chercheur.objects.filter(nom_chercheur=nom,prenom_chercheur=prenom).first()
+        return render(request, 'Affich_chercheur.html', {'key': chercheur})
+        #chercheur is a variable contain the data returned from the BDD
+    else:
+        return render(request, 'Affich_chercheur.html')
 
 
 # Create your views here.

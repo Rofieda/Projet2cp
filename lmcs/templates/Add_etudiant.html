@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Chercheur Form</title>
+</head>
+<body>
+    <h1>Add Etudiant</h1>
+    <form action="{% url 'create_etudiant' %}" method="post" enctype="multipart/form-data">
+        <!-- CSRF token to prevent Cross-Site Request Forgery (CSRF) attacks -->
+        {% csrf_token %}
+        <label for="nom_etd">nom_etd</label>
+        <input type="text" id="nom_etd" name="nom_etd">  <br>
+
+        <label for="prenom_etd">prenom_etd</label>
+        <input type="text" id="intitule" name="prenom_etd"><br>
+
+        <label for="etablissement_etd">etablissement_etd</label>
+        <input type="text" id="etablissement_etd" name="etablissement_etd"><br>
+
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
